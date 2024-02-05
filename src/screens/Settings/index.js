@@ -12,8 +12,8 @@ import TopNavigation from '../../components/navigation/TopNavigation';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
 
 const Settings = ({navigation}) => {
-  const {theme} = useSelector(store => store.theme);
-  const {language} = useSelector(state => state.language);
+  const {theme} = useSelector(store => store.theme || {});
+  const {language} = useSelector(state => state.language || {});
   const dispatch = useDispatch();
   const langObj = {ua: 'Українська', en: 'English', ru: 'Русский'};
   const handleThemePress = async () => {
@@ -57,7 +57,7 @@ const Settings = ({navigation}) => {
           <Text style={styles.valueText}>{t(item.value)}</Text>
           <View style={styles.wrapperArrowRight}>
             <Icon
-              color={Colors[theme].colors.dark_300}
+              color={Colors[theme]?.colors.dark_300}
               size={14}
               name={'chevron-right'}
             />
@@ -79,6 +79,9 @@ const Settings = ({navigation}) => {
       <View style={styles.wrapperItem} key={item.id}>
         <Text style={styles.title}>{t(item.title)}</Text>
         <Text style={styles.valueText}>{t(item.value)}</Text>
+        <Text style={styles.valueText} testID={'themeText'}>
+          {theme === themeTypes.dark ? 'dark' : 'light'}
+        </Text>
         <View style={styles.wrapperArrowRight}>
           <SwitchComponent
             isOn={theme === themeTypes.dark}

@@ -18,9 +18,9 @@ const Navigation = () => {
   const {theme} = useSelector(store => store.theme);
 
   useEffect(() => {
-    SplashScreen.hide();
+    SplashScreen?.hide();
     changeBottomNav(Colors[theme].colors.dark_30);
-  }, []);
+  }, [SplashScreen]);
 
   const changeBottomNav = async () => {
     await changeNavigationBarColor('transparent');

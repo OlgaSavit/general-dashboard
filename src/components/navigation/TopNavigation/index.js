@@ -1,17 +1,11 @@
-import Icon from '../../../components/Icon';
-import {stylessheet} from './styles';
-import Colors from '../../../constants/theme';
-import {useSelector} from 'react-redux';
-import Layout from '../../../components/Layout';
-import React, {useCallback} from 'react';
-import {View, Text, Image} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
-import CustomButton, {ButtonTypes} from '../../../components/Button';
-export const topNavigationTypes = {
-  default: 'default',
-  photo: 'photo',
-  sliderPhoto: 'sliderPhoto',
-};
+import Icon from '../../../components/Icon'
+import {stylessheet} from './styles'
+import Colors from '../../../constants/theme'
+import {useSelector} from 'react-redux'
+import React, {useCallback} from 'react'
+import {View, Text} from 'react-native'
+import {useNavigation} from '@react-navigation/native'
+import CustomButton, {ButtonTypes} from '../../../components/Button'
 const initialProps = {
   showBack: true,
   showNext: false,
@@ -21,13 +15,10 @@ const initialProps = {
   customTitle: null,
   titleCount: null,
   onBackPress: null,
-  type: topNavigationTypes.default,
-  photo: null,
-  sliderPhoto: [],
-  onNextPress: () => {},
-};
+  onNextPress: () => {}
+}
 const TopNavigation = props => {
-  const navigation = useNavigation();
+  const navigation = useNavigation()
   const {
     showBack,
     showNext,
@@ -37,89 +28,25 @@ const TopNavigation = props => {
     customRightBtn,
     titleCount,
     onBackPress,
-    onNextPress,
-    type,
-    photo,
-    sliderPhoto,
+    onNextPress
   } = {
     ...initialProps,
-    ...props,
-  };
-  const {theme} = useSelector(store => store.theme);
+    ...props
+  }
+  const {theme} = useSelector(store => store.theme)
 
   const handleBackPress = useCallback(() => {
     if (
       typeof onBackPress !== 'undefined' &&
       typeof onBackPress === 'function'
     ) {
-      onBackPress();
+      onBackPress()
     } else {
-      navigation.goBack();
+      navigation.goBack()
     }
-  }, [onBackPress]);
+  }, [onBackPress])
 
-  const styles = stylessheet(theme);
-  if (type === topNavigationTypes.photo) {
-    return (
-      <View style={styles.wrapperPhotoBlock}>
-        <Image style={styles.photoStyle} source={photo} />
-        <Layout
-          styleContainer={styles.layoutStyle}
-          styleScrollView={styles.styleScrollView}>
-          <View style={styles.wrapperPhotoButtonsBlock}>
-            <View style={styles.wrapperLeftBlock}>
-              {showBack && (
-                <CustomButton
-                  styleContainer={styles.bgPhotoBtn}
-                  onPress={handleBackPress}
-                  btnType={ButtonTypes.roundBtn}>
-                  <Icon
-                    color={Colors[theme].colors.dark_300}
-                    size={14}
-                    name={'chevron-left'}
-                  />
-                </CustomButton>
-              )}
-              {customLeftBtn && customLeftBtn}
-            </View>
-            <View style={styles.wrapperRightBlock}>
-              {customRightBtn && customRightBtn}
-            </View>
-          </View>
-        </Layout>
-      </View>
-    );
-  }
-  if (type === topNavigationTypes.sliderPhoto) {
-    return (
-      <View style={styles.wrapperPhotoBlock}>
-        <Layout
-          styleContainer={styles.layoutStyle}
-          styleScrollView={styles.styleScrollView}>
-          <View style={styles.wrapperPhotoButtonsBlock}>
-            <View style={styles.wrapperLeftBlock}>
-              {showBack && (
-                <CustomButton
-                  styleContainer={styles.bgPhotoBtn}
-                  onPress={handleBackPress}
-                  btnType={ButtonTypes.roundBtn}>
-                  <Icon
-                    color={Colors[theme].colors.dark_300}
-                    size={14}
-                    name={'chevron-left'}
-                  />
-                </CustomButton>
-              )}
-              {customLeftBtn && customLeftBtn}
-            </View>
-            <View style={styles.wrapperRightBlock}>
-              {customRightBtn && customRightBtn}
-            </View>
-          </View>
-        </Layout>
-      </View>
-    );
-  }
+  const styles = stylessheet(theme)
   return (
     <View style={styles.wrapperTopNavigation}>
       <View style={styles.wrapperLeftBlock}>
@@ -165,6 +92,6 @@ const TopNavigation = props => {
         {customRightBtn && customRightBtn}
       </View>
     </View>
-  );
-};
-export default TopNavigation;
+  )
+}
+export default TopNavigation

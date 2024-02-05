@@ -6,7 +6,7 @@ const HomeScreen = ({navigation}) => {
   return (
     <Layout bottomBarShow={true}>
       <View style={{backgroundColor: 'red', flex: 1, padding: 16}}>
-        <Text>Home</Text>
+        <Text testID={'homeScreen'}>Home</Text>
         <Button
           onPress={() => {
             navigation.navigate('Settings');

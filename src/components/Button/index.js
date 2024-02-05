@@ -1,7 +1,6 @@
 import {stylessheet} from './styles'
 import {useSelector} from 'react-redux'
-import {Text, View} from 'react-native'
-import {TouchableOpacity} from 'react-native-gesture-handler'
+import {Text, TouchableOpacity, View} from 'react-native'
 
 export const ButtonTypes = {
   default: 'default',
