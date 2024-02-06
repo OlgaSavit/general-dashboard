@@ -46,7 +46,7 @@ const Layout = props => {
     ...initialProps,
     ...props,
   };
-  const {theme} = useSelector(store => store.theme);
+  const {theme} = useSelector(store => store.theme || {});
 
   const insets = useSafeAreaInsets();
 
@@ -83,7 +83,7 @@ const Layout = props => {
         backgroundColor={
           Platform.OS === 'android'
             ? 'transparent'
-            : Colors[barTheme].colors.appBackground
+            : Colors[barTheme]?.colors.appBackground
         }
         translucent={Platform.OS === 'android'}
         barStyle={
