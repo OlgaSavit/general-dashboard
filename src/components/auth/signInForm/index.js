@@ -37,6 +37,7 @@ const SignInForm = props => {
                 isError={
                   (!!errors?.email && isFormChanged.email) || dataErrors?.email
                 }
+                testID={'email'}
                 name={'email'}
                 label={`${t('fields.email')}*`}
                 value={values.email}
@@ -57,6 +58,7 @@ const SignInForm = props => {
                   (!!errors?.password && isFormChanged.password) ||
                   dataErrors?.password
                 }
+                testID={'password'}
                 name={'password'}
                 label={`${t('fields.password')}*`}
                 value={values.password}
@@ -65,10 +67,6 @@ const SignInForm = props => {
                 }}
               />
             </View>
-            {dataErrors?.error_warning && (
-              <Text style={styles.errorText}>{dataErrors.error_warning}</Text>
-            )}
-
             <View style={styles.wrapperLinkBtn}>
               <TouchableOpacity onPress={() => goToScreen()}>
                 <Text style={styles.linkBtn}>{t('texts.forgotPassword')}</Text>
@@ -76,6 +74,7 @@ const SignInForm = props => {
             </View>
           </View>
           <CustomButton
+            testID={'signInBtn'}
             disabled={!isValidForm || isLoading}
             onPress={() => handleSubmit(values)}>
             <Text>{t('auth.signInLabel')}</Text>

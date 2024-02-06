@@ -103,7 +103,9 @@ const Input = props => {
         {inputContent}
       </View>
       {isError && errorText && (
-        <Text style={styles.errorText}>{errorText}</Text>
+        <Text testID={`errorText-${name}`} style={styles.errorText}>
+          {errorText}
+        </Text>
       )}
     </View>
   )

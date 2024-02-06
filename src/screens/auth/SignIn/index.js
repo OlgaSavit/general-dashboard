@@ -44,7 +44,6 @@ const SignInScreen = () => {
                 <View style={styles.wrapperImg}>
                   <Image style={styles.imgStyle} source={item?.image} />
                 </View>
-                {/*<Text>{t(item.label)}</Text>*/}
               </TouchableOpacity>
             )
           })}

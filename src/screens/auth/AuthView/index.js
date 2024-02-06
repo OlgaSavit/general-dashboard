@@ -25,12 +25,14 @@ const AuthViewScreen = () => {
         <View style={styles.wrapperContent}>
           <View>
             <CustomButton
+              testID={'goToSignInBtn'}
               onPress={() => {
                 goToScreen(routerNameList?.signIn)
               }}>
               <Text>{t('auth.signInLabel')}</Text>
             </CustomButton>
             <CustomButton
+              testID={'goToSignUpBtn'}
               onPress={() => {
                 goToScreen(routerNameList?.signUp)
               }}>

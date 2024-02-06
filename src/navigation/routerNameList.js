@@ -8,8 +8,10 @@ const routerNameList = {
   signIn: 'SignInScreen',
   signUp: 'SignUpScreen',
   settings: 'SettingsViewScreen',
-  language: 'LanguageScreen'
+  language: 'LanguageScreen',
 
   //private
+  tasks: 'TasksScreen',
+  tasksForm: 'TaskFormScreen'
 }
 export default routerNameList

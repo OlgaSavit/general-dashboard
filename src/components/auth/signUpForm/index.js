@@ -40,6 +40,7 @@ const SignUpForm = props => {
                   (!!errors?.username && isFormChanged.username) ||
                   dataErrors?.username
                 }
+                testID={'username'}
                 name={'username'}
                 label={`${t('fields.username')}*`}
                 value={values.username}
@@ -56,6 +57,7 @@ const SignUpForm = props => {
                 isError={
                   (!!errors?.email && isFormChanged.email) || dataErrors?.email
                 }
+                testID={'email'}
                 name={'email'}
                 label={`${t('fields.email')}*`}
                 value={values.email}
@@ -79,6 +81,7 @@ const SignUpForm = props => {
                     (!!errors?.password && isFormChanged.password) ||
                     dataErrors?.password
                   }
+                  testID={'password'}
                   name={'password'}
                   label={`${t('fields.password')}*`}
                   value={values.password}
@@ -100,6 +103,7 @@ const SignUpForm = props => {
                       isFormChanged.confirm_password) ||
                     dataErrors.confirm_password
                   }
+                  testID={'confirm_password'}
                   name={'confirm_password'}
                   label={`${t('fields.confirmPassword')}*`}
                   value={values.confirm_password}

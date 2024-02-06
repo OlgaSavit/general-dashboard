@@ -4,7 +4,10 @@ export default {
     signUpLabel: 'Реєстрація'
   },
   texts: {
-    forgotPassword: 'Забули пароль'
+    forgotPassword: 'Забули пароль',
+    tasks: 'Задачі',
+    createTask: 'Створити задачу',
+    editTask: 'Редагувати задачу'
   },
   buttons: {},
   fields: {
@@ -12,7 +15,9 @@ export default {
     email: 'Електронна пошта',
     password: 'Пароль',
     rePassword: 'Повторіть пароль',
-    confirmPassword: 'Підтвердіть пароль'
+    confirmPassword: 'Підтвердіть пароль',
+    title: 'Назва',
+    description: 'Опис'
   },
   validationErrors: {
     emailIncorrect: 'Значення "Email" невалідне',

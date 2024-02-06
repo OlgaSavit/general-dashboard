@@ -29,7 +29,8 @@ const CustomButton = props => {
     styleText,
     btnType,
     mainStyleContainer,
-    flexGrow
+    flexGrow,
+    ...rest
   } = {
     ...initialProps,
     ...props
@@ -77,7 +78,8 @@ const CustomButton = props => {
           ? [styles.mainStyleContainer, mainStyleContainer]
           : mainStyleContainer
       }
-      style={buttonStyles}>
+      style={buttonStyles}
+      {...rest}>
       {btnType === ButtonTypes.roundBtn ? (
         <View>{children}</View>
       ) : (
